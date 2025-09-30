@@ -1,0 +1,1748 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     53897,       1740]
+NotebookOptionsPosition[     52541,       1708]
+NotebookOutlinePosition[     52954,       1725]
+CellTagsIndexPosition[     52911,       1722]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"<<", "FeynCalc`"}]], "Input",
+ CellChangeTimes->{{3.9676188879672337`*^9, 3.9676188946487865`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"ca2f3f47-3bb8-b145-942a-d88905c32c45"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"FeynCalc \"\>", "Text",
+    StripOnInput->False,
+    FontWeight->Bold], "\[InvisibleSpace]", 
+   StyleBox["\<\"10.1.0 (dev version). For help, use the \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox[
+      RowBox[{
+       RowBox[{"online", " ", "documentation"}], ","}],
+      BaseStyle->"Hyperlink",
+      ButtonData:>{
+        URL["https://feyncalc.github.io/referenceDev"], None},
+      ButtonNote->"https://feyncalc.github.io/referenceDev"],
+     DisplayForm], "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox["\<\" visit the \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox["forum",
+      BaseStyle->"Hyperlink",
+      ButtonData:>{
+        URL["https://github.com/FeynCalc/feyncalc/discussions"], None},
+      ButtonNote->"https://github.com/FeynCalc/feyncalc/discussions/"],
+     DisplayForm], "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox["\<\" and have a look at the supplied \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox[
+      RowBox[{"examples", "."}],
+      BaseStyle->"Hyperlink",
+      ButtonFunction:>SystemOpen[
+        FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]],
+      Evaluator->Automatic,
+      Method->"Preemptive"],
+     DisplayForm], "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox["\<\" The PDF-version of the manual can be downloaded \"\>", 
+    "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox[
+      RowBox[{"here", "."}],
+      BaseStyle->"Hyperlink",
+      ButtonData:>{
+        URL[
+        "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
+manual/FeynCalcManual.pdf"], None},
+      ButtonNote->
+       "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
+manual/FeynCalcManual.pdf"],
+     DisplayForm], "Text",
+    StripOnInput->False]}],
+  SequenceForm[
+   Style["FeynCalc ", "Text", Bold], 
+   Style["10.1.0 (dev version). For help, use the ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox["online documentation,", ButtonData :> {
+        URL["https://feyncalc.github.io/referenceDev"], None}, BaseStyle -> 
+      "Hyperlink", ButtonNote -> "https://feyncalc.github.io/referenceDev"]], 
+    "Text"], 
+   Style[" visit the ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox["forum", ButtonData :> {
+        URL["https://github.com/FeynCalc/feyncalc/discussions"], None}, 
+      BaseStyle -> "Hyperlink", ButtonNote -> 
+      "https://github.com/FeynCalc/feyncalc/discussions/"]], "Text"], 
+   Style[" and have a look at the supplied ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox[
+     "examples.", BaseStyle -> "Hyperlink", ButtonFunction :> SystemOpen[
+        FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]], Evaluator -> 
+      Automatic, Method -> "Preemptive"]], "Text"], 
+   Style[" The PDF-version of the manual can be downloaded ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox["here.", ButtonData :> {
+        URL[
+        "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
+manual/FeynCalcManual.pdf"], None}, BaseStyle -> "Hyperlink", ButtonNote -> 
+      "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
+manual/FeynCalcManual.pdf"]], "Text"]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.967618939698435*^9, 3.9682269226670017`*^9, 
+  3.9682271036119175`*^9, 3.968227212025255*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"18c63cae-83ae-3942-b51d-\
+0dc78f7ad67c"],
+
+Cell[BoxData[
+ StyleBox["\<\"If you use FeynCalc in your research, please evaluate \
+FeynCalcHowToCite[] to learn how to cite this software.\"\>", "Text",
+  StripOnInput->False]], "Print",
+ CellChangeTimes->{3.967618939698435*^9, 3.9682269226670017`*^9, 
+  3.9682271036119175`*^9, 3.968227212030138*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"000e3550-97a9-ef46-ab45-\
+fa498af54422"],
+
+Cell[BoxData[
+ StyleBox["\<\"Please keep in mind that the proper academic attribution of \
+our work is crucial to ensure the future development of this package!\"\>", 
+  "Text",
+  StripOnInput->False,
+  FontSlant->Italic]], "Print",
+ CellChangeTimes->{3.967618939698435*^9, 3.9682269226670017`*^9, 
+  3.9682271036119175`*^9, 3.9682272120326233`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"acae57d8-d683-e949-b873-\
+8dabd2a4b9c9"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Kin", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"-", "g"}], ")"}], 
+       RowBox[{"FVD", "[", 
+        RowBox[{"\[Beta]I", ",", "\[Mu]"}], "]"}], 
+       RowBox[{"(", 
+        RowBox[{"-", "g"}], ")"}], 
+       RowBox[{
+        RowBox[{"FVD", "[", 
+         RowBox[{"\[Beta]J", ",", "\[Nu]"}], "]"}], ".", 
+        RowBox[{"(", 
+         RowBox[{"-", "g"}], ")"}]}], 
+       RowBox[{"FVD", "[", 
+        RowBox[{"\[Beta]K", ",", "\[Rho]"}], "]"}], 
+       RowBox[{"(", 
+        RowBox[{"-", "g"}], ")"}], 
+       RowBox[{"FVD", "[", 
+        RowBox[{"\[Beta]K", ",", "\[Sigma]"}], "]"}], " ", "I", " ", "g", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"MT", "[", 
+           RowBox[{"\[Mu]", ",", "\[Rho]"}], "]"}], 
+          RowBox[{"FVD", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "2"}], "q1"}], "-", "q3"}], ",", "\[Lambda]"}], 
+           "]"}]}], "+", 
+         RowBox[{
+          RowBox[{"MTD", "[", 
+           RowBox[{"\[Rho]", ",", "\[Lambda]"}], "]"}], 
+          RowBox[{"FVD", "[", 
+           RowBox[{
+            RowBox[{"q1", "-", "q3"}], ",", "\[Mu]"}], "]"}]}], "+", 
+         RowBox[{
+          RowBox[{"MTD", "[", 
+           RowBox[{"\[Lambda]", ",", "\[Mu]"}], "]"}], 
+          RowBox[{"FVD", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"2", "q3"}], "+", "q1"}], ",", "\[Rho]"}], "]"}]}]}], 
+        ")"}], "g", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"MTD", "[", 
+           RowBox[{"\[Nu]", ",", "\[Sigma]"}], "]"}], 
+          RowBox[{"FVD", "[", 
+           RowBox[{
+            RowBox[{"q3", "-", 
+             RowBox[{"2", "q2"}]}], ",", "\[Lambda]"}], "]"}]}], "+", 
+         RowBox[{
+          RowBox[{"MTD", "[", 
+           RowBox[{"\[Sigma]", ",", "\[Lambda]"}], "]"}], 
+          RowBox[{"FVD", "[", 
+           RowBox[{
+            RowBox[{"q2", "+", "q3"}], ",", "\[Nu]"}], "]"}]}], "+", 
+         RowBox[{
+          RowBox[{"MTD", "[", 
+           RowBox[{"\[Lambda]", ",", "\[Nu]"}], "]"}], 
+          RowBox[{"FVD", "[", 
+           RowBox[{
+            RowBox[{"q2", "-", 
+             RowBox[{"2", "q3"}]}], ",", "\[Sigma]"}], "]"}]}]}], ")"}]}], "//",
+       "Contract"}], "//", "ExpandAll"}], "//", "Simplify"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.9676191600696583`*^9, 3.9676191786559258`*^9}, {
+  3.9676192590634995`*^9, 3.967619355287777*^9}, {3.9676193884165955`*^9, 
+  3.9676194730188313`*^9}, {3.9676195280192947`*^9, 3.9676195941123867`*^9}, {
+  3.967619800746252*^9, 3.9676199059122562`*^9}, {3.9676199380497265`*^9, 
+  3.967620028372183*^9}, {3.9676201625901165`*^9, 3.967620164234989*^9}, {
+  3.967620201805689*^9, 3.967620263696144*^9}, {3.967620446570709*^9, 
+  3.967620457850065*^9}, {3.967620511825794*^9, 3.9676205178213825`*^9}, {
+  3.967620901352724*^9, 3.9676209017813015`*^9}, {3.9676210123274612`*^9, 
+  3.967621116006111*^9}, {3.968226942616516*^9, 3.9682269458344955`*^9}, {
+  3.968227029444046*^9, 3.968227031588087*^9}, {3.9682271174733906`*^9, 
+  3.968227122178129*^9}, {3.9682272301820107`*^9, 3.9682272329043007`*^9}, {
+  3.9682272791948395`*^9, 3.9682272901691723`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"9ec273fa-b903-1f42-bbc5-1bb1b3780501"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Chr", "=", 
+   RowBox[{
+    RowBox[{"SUNTF", "[", 
+     RowBox[{"a", ",", "iI", ",", "jI"}], "]"}], 
+    RowBox[{"SUNTF", "[", 
+     RowBox[{"b", ",", "iJ", ",", "jJ"}], "]"}], 
+    RowBox[{"SUNTF", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"d", ",", "c"}], "}"}], ",", " ", "iK", ",", "jK"}], "]"}], "*", 
+    RowBox[{"SUNF", "[", 
+     RowBox[{"a", ",", "c", ",", "e"}], "]"}], " ", "*", 
+    RowBox[{"SUNF", "[", 
+     RowBox[{"b", ",", "d", ",", "e"}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9676202147083015`*^9, 3.96762029797917*^9}, {
+   3.967620638826252*^9, 3.967620656562067*^9}, 3.967620686738388*^9, {
+   3.967620718412161*^9, 3.9676207355043087`*^9}, {3.968226950761755*^9, 
+   3.968226953180773*^9}, {3.9682272262707195`*^9, 3.9682272281231937`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"cdc3c22c-d030-a647-aa29-e41d40de7882"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Num", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"Kin", "/.", 
+     RowBox[{
+      RowBox[{"Pair", "[", 
+       RowBox[{
+        RowBox[{"Momentum", "[", 
+         RowBox[{"p_", ",", "D"}], "]"}], ",", 
+        RowBox[{"Momentum", "[", 
+         RowBox[{"q_", ",", "D"}], "]"}]}], "]"}], "->", 
+      RowBox[{"SP", "[", 
+       RowBox[{"p", ",", "q"}], "]"}]}]}], ")"}], "*", "Chr"}]}]], "Input",
+ CellChangeTimes->{{3.9682269583667336`*^9, 3.968227057806345*^9}, {
+  3.9682271323819523`*^9, 3.9682271741882267`*^9}, {3.9682272475402126`*^9, 
+  3.9682272510627537`*^9}, {3.968227299729351*^9, 3.9682273023219833`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"100b7d5d-7259-e442-b9de-abe069bd9495"],
+
+Cell[BoxData[
+ RowBox[{"\[ImaginaryI]", " ", 
+  SuperscriptBox["g", "6"], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"2", " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q2", ",", "\[Beta]K"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]K"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]I", ",", "\[Beta]J"}], "]"}]}], "-", 
+    RowBox[{"4", " ", 
+     SuperscriptBox[
+      RowBox[{"SP", "[", 
+       RowBox[{"q3", ",", "\[Beta]K"}], "]"}], "2"], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]I", ",", "\[Beta]J"}], "]"}]}], "+", 
+    RowBox[{"2", " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q2", ",", "\[Beta]J"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]K"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]I", ",", "\[Beta]K"}], "]"}]}], "+", 
+    RowBox[{"2", " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]J"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]K"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]I", ",", "\[Beta]K"}], "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"SP", "[", 
+      RowBox[{"q1", ",", "\[Beta]I"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q2", ",", "\[Beta]K"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]J", ",", "\[Beta]K"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"SP", "[", 
+      RowBox[{"q2", ",", "\[Beta]K"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]I"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]J", ",", "\[Beta]K"}], "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"SP", "[", 
+      RowBox[{"q1", ",", "\[Beta]I"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]K"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]J", ",", "\[Beta]K"}], "]"}]}], "-", 
+    RowBox[{"4", " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q2", ",", "\[Beta]I"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]K"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]J", ",", "\[Beta]K"}], "]"}]}], "+", 
+    RowBox[{"3", " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]I"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]K"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]J", ",", "\[Beta]K"}], "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Pair", "[", 
+      RowBox[{
+       RowBox[{"Momentum", "[", "\[Beta]I", "]"}], ",", 
+       RowBox[{"Momentum", "[", "\[Beta]K", "]"}]}], "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"SP", "[", 
+         RowBox[{"q2", ",", "\[Beta]K"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"q3", ",", "\[Beta]J"}], "]"}]}], "+", 
+       RowBox[{"2", " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"q1", ",", "\[Beta]K"}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"SP", "[", 
+           RowBox[{"q2", ",", "\[Beta]J"}], "]"}], "+", 
+          RowBox[{"SP", "[", 
+           RowBox[{"q3", ",", "\[Beta]J"}], "]"}]}], ")"}]}], "+", 
+       RowBox[{"2", " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"q1", ",", "\[Beta]J"}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"SP", "[", 
+           RowBox[{"q2", ",", "\[Beta]K"}], "]"}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{"SP", "[", 
+            RowBox[{"q3", ",", "\[Beta]K"}], "]"}]}]}], ")"}]}], "+", 
+       RowBox[{
+        RowBox[{"SP", "[", 
+         RowBox[{"q2", ",", "\[Beta]J"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"q3", ",", "\[Beta]K"}], "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"SP", "[", 
+         RowBox[{"q3", ",", "\[Beta]J"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"q3", ",", "\[Beta]K"}], "]"}]}], "-", 
+       RowBox[{"4", " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"q1", ",", "q2"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"\[Beta]J", ",", "\[Beta]K"}], "]"}]}], "+", 
+       RowBox[{"2", " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"q1", ",", "q3"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"\[Beta]J", ",", "\[Beta]K"}], "]"}]}], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"q2", ",", "q3"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"\[Beta]J", ",", "\[Beta]K"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"SP", "[", 
+         RowBox[{"q3", ",", "q3"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"\[Beta]J", ",", "\[Beta]K"}], "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"SP", "[", 
+      RowBox[{"q1", ",", "\[Beta]K"}], "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"SP", "[", 
+         RowBox[{"q2", ",", "\[Beta]K"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"\[Beta]I", ",", "\[Beta]J"}], "]"}]}], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"q3", ",", "\[Beta]K"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"\[Beta]I", ",", "\[Beta]J"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"SP", "[", 
+         RowBox[{"q2", ",", "\[Beta]J"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"\[Beta]I", ",", "\[Beta]K"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"SP", "[", 
+         RowBox[{"q3", ",", "\[Beta]J"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"\[Beta]I", ",", "\[Beta]K"}], "]"}]}], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"q2", ",", "\[Beta]I"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"\[Beta]J", ",", "\[Beta]K"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"SP", "[", 
+         RowBox[{"q3", ",", "\[Beta]I"}], "]"}], " ", 
+        RowBox[{"SP", "[", 
+         RowBox[{"\[Beta]J", ",", "\[Beta]K"}], "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"SP", "[", 
+      RowBox[{"q1", ",", "\[Beta]I"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q2", ",", "\[Beta]J"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]K", ",", "\[Beta]K"}], "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"SP", "[", 
+      RowBox[{"q2", ",", "\[Beta]J"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]I"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]K", ",", "\[Beta]K"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"SP", "[", 
+      RowBox[{"q1", ",", "\[Beta]I"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]J"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]K", ",", "\[Beta]K"}], "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]I"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"q3", ",", "\[Beta]J"}], "]"}], " ", 
+     RowBox[{"SP", "[", 
+      RowBox[{"\[Beta]K", ",", "\[Beta]K"}], "]"}]}]}], ")"}], " ", 
+  RowBox[{"SUNF", "[", 
+   RowBox[{"a", ",", "c", ",", "e"}], "]"}], " ", 
+  RowBox[{"SUNF", "[", 
+   RowBox[{"b", ",", "d", ",", "e"}], "]"}], " ", 
+  RowBox[{"SUNTF", "[", 
+   RowBox[{
+    RowBox[{"{", "a", "}"}], ",", "iI", ",", "jI"}], "]"}], " ", 
+  RowBox[{"SUNTF", "[", 
+   RowBox[{
+    RowBox[{"{", "b", "}"}], ",", "iJ", ",", "jJ"}], "]"}], " ", 
+  RowBox[{"SUNTF", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"d", ",", "c"}], "}"}], ",", "iK", ",", "jK"}], 
+   "]"}]}]], "Output",
+ CellChangeTimes->{
+  3.968227011889078*^9, {3.9682270450393486`*^9, 3.968227058225504*^9}, 
+   3.968227104302273*^9, {3.968227138494177*^9, 3.968227174831602*^9}, {
+   3.9682272127574215`*^9, 3.968227251818611*^9}, 3.9682273027681427`*^9},
+ CellLabel->"Out[11]=",ExpressionUUID->"b747ba9c-d5a6-f84d-910c-b4a846ea281d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Num", "//", "TraditionalForm"}]], "Input",
+ CellChangeTimes->{{3.968227370798729*^9, 3.9682273736624813`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"1417cd5d-c813-cb48-94ee-ba4b5796356d"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"\[ImaginaryI]", " ", 
+   SuperscriptBox["g", "6"], " ", 
+   SuperscriptBox["f", 
+    RowBox[{
+     FormBox["a",
+      TraditionalForm], 
+     FormBox["c",
+      TraditionalForm], 
+     FormBox["e",
+      TraditionalForm]}]], " ", 
+   SubsuperscriptBox["T", 
+    RowBox[{
+     FormBox["iI",
+      TraditionalForm], 
+     FormBox["jI",
+      TraditionalForm]}], 
+    FormBox["a",
+     TraditionalForm]], " ", 
+   SuperscriptBox["f", 
+    RowBox[{
+     FormBox["b",
+      TraditionalForm], 
+     FormBox["d",
+      TraditionalForm], 
+     FormBox["e",
+      TraditionalForm]}]], " ", 
+   SubsuperscriptBox["T", 
+    RowBox[{
+     FormBox["iJ",
+      TraditionalForm], 
+     FormBox["jJ",
+      TraditionalForm]}], 
+    FormBox["b",
+     TraditionalForm]], " ", 
+   SubscriptBox[
+    RowBox[{"(", 
+     SuperscriptBox["T", 
+      FormBox["d",
+       TraditionalForm]], 
+     SuperscriptBox["T", 
+      FormBox["c",
+       TraditionalForm]], ")"}], 
+    RowBox[{
+     FormBox["iK",
+      TraditionalForm], 
+     FormBox["jK",
+      TraditionalForm]}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{
+       RowBox[{"(", 
+        FormBox[
+         RowBox[{
+          FormBox[
+           OverscriptBox[
+            FormBox["\[Beta]J",
+             TraditionalForm], "_"],
+           TraditionalForm], 
+          FormBox["\<\"\[CenterDot]\"\>",
+           TraditionalForm], 
+          FormBox[
+           OverscriptBox[
+            FormBox["\[Beta]K",
+             TraditionalForm], "_"],
+           TraditionalForm]}],
+         TraditionalForm], ")"}], " ", 
+       RowBox[{"(", 
+        FormBox[
+         RowBox[{
+          FormBox[
+           OverscriptBox[
+            FormBox["q1",
+             TraditionalForm], "_"],
+           TraditionalForm], 
+          FormBox["\<\"\[CenterDot]\"\>",
+           TraditionalForm], 
+          FormBox[
+           OverscriptBox[
+            FormBox["\[Beta]I",
+             TraditionalForm], "_"],
+           TraditionalForm]}],
+         TraditionalForm], ")"}], " ", 
+       RowBox[{"(", 
+        FormBox[
+         RowBox[{
+          FormBox[
+           OverscriptBox[
+            FormBox["q2",
+             TraditionalForm], "_"],
+           TraditionalForm], 
+          FormBox["\<\"\[CenterDot]\"\>",
+           TraditionalForm], 
+          FormBox[
+           OverscriptBox[
+            FormBox["\[Beta]K",
+             TraditionalForm], "_"],
+           TraditionalForm]}],
+         TraditionalForm], ")"}]}]}], "+", 
+     RowBox[{
+      FormBox[
+       SuperscriptBox[
+        FormBox[
+         OverscriptBox[
+          FormBox["\[Beta]K",
+           TraditionalForm], "_"],
+         TraditionalForm], "2"],
+       TraditionalForm], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q1",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q2",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}]}], "-", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        FormBox[
+         OverscriptBox[
+          FormBox["\[Beta]I",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox["\<\"\[CenterDot]\"\>",
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["\[Beta]K",
+           TraditionalForm], "_"],
+         TraditionalForm]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"4", " ", 
+          RowBox[{"(", 
+           FormBox[
+            RowBox[{
+             FormBox[
+              OverscriptBox[
+               FormBox["\[Beta]J",
+                TraditionalForm], "_"],
+              TraditionalForm], 
+             FormBox["\<\"\[CenterDot]\"\>",
+              TraditionalForm], 
+             FormBox[
+              OverscriptBox[
+               FormBox["\[Beta]K",
+                TraditionalForm], "_"],
+              TraditionalForm]}],
+            TraditionalForm], ")"}], " ", 
+          RowBox[{"(", 
+           FormBox[
+            RowBox[{
+             FormBox[
+              OverscriptBox[
+               FormBox["q1",
+                TraditionalForm], "_"],
+              TraditionalForm], 
+             FormBox["\<\"\[CenterDot]\"\>",
+              TraditionalForm], 
+             FormBox[
+              OverscriptBox[
+               FormBox["q2",
+                TraditionalForm], "_"],
+              TraditionalForm]}],
+            TraditionalForm], ")"}]}]}], "+", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q1",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            RowBox[{
+             FormBox[
+              OverscriptBox[
+               FormBox["q2",
+                TraditionalForm], "_"],
+              TraditionalForm], 
+             FormBox["\<\"\[CenterDot]\"\>",
+              TraditionalForm], 
+             FormBox[
+              OverscriptBox[
+               FormBox["\[Beta]J",
+                TraditionalForm], "_"],
+              TraditionalForm]}],
+            TraditionalForm], "+", 
+           FormBox[
+            RowBox[{
+             FormBox[
+              OverscriptBox[
+               FormBox["q3",
+                TraditionalForm], "_"],
+              TraditionalForm], 
+             FormBox["\<\"\[CenterDot]\"\>",
+              TraditionalForm], 
+             FormBox[
+              OverscriptBox[
+               FormBox["\[Beta]J",
+                TraditionalForm], "_"],
+              TraditionalForm]}],
+            TraditionalForm]}], ")"}]}], "+", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q1",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            RowBox[{
+             FormBox[
+              OverscriptBox[
+               FormBox["q2",
+                TraditionalForm], "_"],
+              TraditionalForm], 
+             FormBox["\<\"\[CenterDot]\"\>",
+              TraditionalForm], 
+             FormBox[
+              OverscriptBox[
+               FormBox["\[Beta]K",
+                TraditionalForm], "_"],
+              TraditionalForm]}],
+            TraditionalForm], "-", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             FormBox[
+              RowBox[{
+               FormBox[
+                OverscriptBox[
+                 FormBox["q3",
+                  TraditionalForm], "_"],
+                TraditionalForm], 
+               FormBox["\<\"\[CenterDot]\"\>",
+                TraditionalForm], 
+               FormBox[
+                OverscriptBox[
+                 FormBox["\[Beta]K",
+                  TraditionalForm], "_"],
+                TraditionalForm]}],
+              TraditionalForm], ")"}]}]}], ")"}]}], "+", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q1",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["q3",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q2",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q3",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q2",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q3",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}], "-", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q2",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["q3",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}], "-", 
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q3",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q3",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}], "+", 
+        RowBox[{
+         FormBox[
+          SuperscriptBox[
+           FormBox[
+            OverscriptBox[
+             FormBox["q3",
+              TraditionalForm], "_"],
+            TraditionalForm], "2"],
+          TraditionalForm], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q1",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]I",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q2",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]I",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q2",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}], "-", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q2",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]I",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}], "-", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]I",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q3",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]I",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q3",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]J",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]K",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}], " ", 
+         RowBox[{"(", 
+          FormBox[
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["q3",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["\[Beta]I",
+               TraditionalForm], "_"],
+             TraditionalForm]}],
+           TraditionalForm], ")"}]}]}], ")"}]}], "-", 
+     RowBox[{
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q1",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}]}], "+", 
+     RowBox[{
+      FormBox[
+       SuperscriptBox[
+        FormBox[
+         OverscriptBox[
+          FormBox["\[Beta]K",
+           TraditionalForm], "_"],
+         TraditionalForm], "2"],
+       TraditionalForm], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q1",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}]}], "+", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q2",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}]}], "+", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q2",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}]}], "-", 
+     RowBox[{"4", " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q2",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q2",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}]}], "-", 
+     RowBox[{
+      FormBox[
+       SuperscriptBox[
+        FormBox[
+         OverscriptBox[
+          FormBox["\[Beta]K",
+           TraditionalForm], "_"],
+         TraditionalForm], "2"],
+       TraditionalForm], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q2",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}]}], "-", 
+     RowBox[{"4", " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FormBox[
+         RowBox[{
+          FormBox[
+           OverscriptBox[
+            FormBox["q3",
+             TraditionalForm], "_"],
+           TraditionalForm], 
+          FormBox["\<\"\[CenterDot]\"\>",
+           TraditionalForm], 
+          FormBox[
+           OverscriptBox[
+            FormBox["\[Beta]K",
+             TraditionalForm], "_"],
+           TraditionalForm]}],
+         TraditionalForm], ")"}], "2"]}], "+", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}]}], "+", 
+     RowBox[{"3", " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]K",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}]}], "-", 
+     RowBox[{
+      FormBox[
+       SuperscriptBox[
+        FormBox[
+         OverscriptBox[
+          FormBox["\[Beta]K",
+           TraditionalForm], "_"],
+         TraditionalForm], "2"],
+       TraditionalForm], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]I",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}], " ", 
+      RowBox[{"(", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["q3",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["\[Beta]J",
+            TraditionalForm], "_"],
+          TraditionalForm]}],
+        TraditionalForm], ")"}]}]}], ")"}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9682273739784393`*^9},
+ CellLabel->
+  "Out[12]//TraditionalForm=",ExpressionUUID->"ad2f480c-4108-4340-8ac6-\
+5c2109be6002"]
+}, Open  ]]
+},
+WindowSize->{1269, 726.5},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (2025\:5e743\:670814\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a522ffe7-0c63-a44d-803c-72919670101c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 201, 3, 28, "Input",ExpressionUUID->"ca2f3f47-3bb8-b145-942a-d88905c32c45"],
+Cell[CellGroupData[{
+Cell[802, 29, 3695, 97, 50, "Print",ExpressionUUID->"18c63cae-83ae-3942-b51d-0dc78f7ad67c"],
+Cell[4500, 128, 410, 8, 26, "Print",ExpressionUUID->"000e3550-97a9-ef46-ab45-fa498af54422"],
+Cell[4913, 138, 456, 10, 26, "Print",ExpressionUUID->"acae57d8-d683-e949-b873-8dabd2a4b9c9"]
+}, Open  ]]
+}, Open  ]],
+Cell[5396, 152, 3374, 85, 96, "Input",ExpressionUUID->"9ec273fa-b903-1f42-bbc5-1bb1b3780501"],
+Cell[8773, 239, 902, 20, 28, "Input",ExpressionUUID->"cdc3c22c-d030-a647-aa29-e41d40de7882"],
+Cell[CellGroupData[{
+Cell[9700, 263, 724, 17, 42, "Input",ExpressionUUID->"100b7d5d-7259-e442-b9de-abe069bd9495"],
+Cell[10427, 282, 7757, 210, 170, "Output",ExpressionUUID->"b747ba9c-d5a6-f84d-910c-b4a846ea281d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18221, 497, 213, 3, 42, "Input",ExpressionUUID->"1417cd5d-c813-cb48-94ee-ba4b5796356d"],
+Cell[18437, 502, 34088, 1203, 149, "Output",ExpressionUUID->"ad2f480c-4108-4340-8ac6-5c2109be6002"]
+}, Open  ]]
+}
+]
+*)
+
